@@ -3,7 +3,7 @@ from requests.exceptions import RequestException
 from flask import Flask, jsonify
 app = Flask(__name__)
 
-team = ('cica', ['Rabinovits Jakov', 'Bognar Marton', 'Tusko Gergely'])
+team = ('cica', [{'name': 'Rabinovits Jakov'}, {'name': 'Bognar Marton'}, {'name': 'Tusko Gergely'}])
 teams_url = 'https://chaosstack-starter.herokuapp.com/teams?hash=FMJB6A5JXTMsJuULE9fpq94mHgn2'
 
 @app.route('/team-members')
@@ -21,7 +21,7 @@ def get_competitors():
                 try:
                     req_team = team_request.json()
                     if 'teamName' in req_team:
-                        teams.append(req_team['teamName'])
+                        teams.append({'name': req_team['teamName']})
                 except ValueError:
                     pass
         except RequestException:
