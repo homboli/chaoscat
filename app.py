@@ -16,11 +16,8 @@ def get_competitors():
     teams = []
     for url in urls.json():
         try:
-            if url['url'][-1] == '/':
-                append = 'team-members'
-            else:
-                append = '/team-members'
-            team_request = requests.get(url['url']+append, timeout=0.1)
+            fullUrl = '/'.join([url['url'].strip('/'), 'team-members'])
+            team_request = requests.get(fullUrl, timeout=0.1)
             if team_request.status_code == 200:
                 try:
                     req_team = team_request.json()
