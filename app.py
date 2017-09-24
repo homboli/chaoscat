@@ -45,11 +45,7 @@ def get_competitors():
     """Return the names of all the teams in the competition (if their API
     responds in time)"""
 
-    teams = [
-        {
-            "name": TEAM["teamName"],
-        },
-    ]
+    teams = []
 
     try:
         urls = requests.get(TEAMS_URL)
