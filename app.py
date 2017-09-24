@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import requests
 from requests.exceptions import RequestException
 from flask import Flask, jsonify
