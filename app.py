@@ -7,6 +7,7 @@ from flask import Flask, jsonify
 
 
 APP = Flask(__name__)
+APP.config['JSON_AS_ASCII'] = False
 
 TEAM = {
     "teamName": "cica",
@@ -76,5 +77,4 @@ def get_competitors():
     return set_encoding(jsonify(teams=teams))
 
 if __name__ == '__main__':
-    APP.config['JSON_AS_ASCII'] = False
     APP.run()
